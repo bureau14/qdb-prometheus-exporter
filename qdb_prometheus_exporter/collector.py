@@ -104,7 +104,7 @@ class QdbStatsCollector(Collector):
                 for metric_name, metric_info in metrics.items():
                     labels = {
                         "endpoint": endpoint,
-                        "stat_type": "cumulative",
+                        "stat_type": "by_uid",
                         "user_id": f"{user_id}",
                     }
                     yield self._parse_metric(labels, metric_name, metric_info)

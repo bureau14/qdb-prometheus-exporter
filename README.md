@@ -2,13 +2,17 @@
 
 Exporter for QuasarDB metrics to Prometheus monitoring system.
 
+## Installation
+
+Currently, the exporter is not published to PyPI. You need to [build](#build-and-test-locally) it from source.
+
 ## Usage
 
 ### Running the exporter
 
 #### Arguments
 
-* `--uri`: QuasarDB cluster URI. Default: `qdb://127.0.0.1:2836`
+* `--cluster`: QuasarDB cluster URI. Default: `qdb://127.0.0.1:2836`
 * `--cluster-public-key-file`: Path to cluster security file for secure clusters.
 * `--user-security-file`: Path to user security file for secure clusters.
 * `--filter-include`: Optional comma-separated list of regex patterns to filter metrics. Only metrics that match at least one of the patterns will be reported.

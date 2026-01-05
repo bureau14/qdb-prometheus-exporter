@@ -8,11 +8,11 @@ import quasardb
 import quasardb.stats as qdbst
 
 
-def _do_filter_metrics(metrics, fn):
+def _do_filter_metrics(metrics: dict, fn):
     return {key: metrics[key] for key in metrics if fn(key)}
 
 
-def _do_filter(stats, fn):
+def _do_filter(stats: dict, fn):
     """
     Performs actual filtering of stats, keeping only those where fn(name) equals True
     """
@@ -35,7 +35,7 @@ def _do_filter(stats, fn):
     return stats
 
 
-def filter_stats(stats, logger, include=None, exclude=None):
+def filter_stats(stats: dict, include: list[str] | None, exclude: list[str] | None, logger: logging.Logger):
     logger.info("Filtering stats based on include/exclude filters")
     stats_ = copy.deepcopy(stats)
 
@@ -165,4 +165,4 @@ def fetch_qdb_stats(
             if "by_uid" in data:
                 combined_stats[endpoint].setdefault("by_uid", {}).update(data["by_uid"])
 
-    return filter_stats(combined_stats, logger, include, exclude)
+    return filter_stats(combined_stats, include, exclude, logger)
