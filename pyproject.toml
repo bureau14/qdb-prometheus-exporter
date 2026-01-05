@@ -1,0 +1,36 @@
+[project]
+requires-python = ">=3.9"
+name = "qdb-prometheus-exporter"
+version = "3.14.2.dev0"
+authors = [
+    {name = "quasardb SAS"},
+    {email="contact@quasardb.net" },
+]
+description = "Statistics exporter for Prometheus monitoring system for QuasarDB time-series database."
+dependencies = [
+    "prometheus-client",
+    "quasardb",
+    "click",
+    "uvicorn",
+    "fastapi",
+]
+
+[build-system]
+requires = ["setuptools", "build", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+include = ["qdb_prometheus_exporter"]
+
+# This entry point creates a command line script `qdb-prometheus-exporter` that can be used to start the exporter server.
+[project.scripts]
+qdb-prometheus-exporter = "qdb_prometheus_exporter.main:start_server"
+
+[tool.black]
+line-length = 88
+target-version = ['py39', 'py310' ,'py311', 'py312', 'py313']
+include = '\.py?$'
+required-version = '24'
