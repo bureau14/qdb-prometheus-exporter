@@ -35,7 +35,12 @@ def _do_filter(stats: dict, fn):
     return stats
 
 
-def filter_stats(stats: dict, include: list[str] | None, exclude: list[str] | None, logger: logging.Logger):
+def filter_stats(
+    stats: dict,
+    include: list[str] | None,
+    exclude: list[str] | None,
+    logger: logging.Logger,
+):
     logger.info("Filtering stats based on include/exclude filters")
     stats_ = copy.deepcopy(stats)
 
