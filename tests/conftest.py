@@ -15,7 +15,7 @@ def config():
     }
 
 
-conn_params = {
+qdbd_settings_dict = {
     "insecure": {
         "uri": "qdb://127.0.0.1:2836",
     },
@@ -29,11 +29,11 @@ conn_params = {
 
 @pytest.fixture(scope="module")
 def qdbd_settings():
-    return conn_params
+    return qdbd_settings_dict
 
 
 @pytest.fixture(
-    scope="module", params=list(conn_params.values()), ids=list(conn_params.keys())
+    scope="module", params=list(qdbd_settings_dict.values()), ids=list(qdbd_settings_dict.keys())
 )
 def qdbd_conn_args(request):
     return request.param
