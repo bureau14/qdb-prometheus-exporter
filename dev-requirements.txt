@@ -7,6 +7,6 @@ pytest
 prometheus-client
 fastapi
 uvicorn
-quasardb
+
 click
 requests
