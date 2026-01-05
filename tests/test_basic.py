@@ -11,7 +11,7 @@ def test_get_stats(qdbd_settings):
 
     for node_id in stats.keys():
         # node_id is ip:port, uri is qdb://ip:port
-        assert node_id in qdbd_settings.get("uri")
+        assert node_id in qdbd_settings.get("secure").get("uri")
 
         assert "by_uid" in stats[node_id]
         assert "cumulative" in stats[node_id]

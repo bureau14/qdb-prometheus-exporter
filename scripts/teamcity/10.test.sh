@@ -30,7 +30,10 @@ fi
 
 # install requirements
 
-${VENV_PYTHON} -m pip install --no-deps --force-reinstall qdb/quasardb-*.whl
+${VENV_PYTHON} -m pip install -r dev-requirements.txt
+${VENV_PYTHON} -m pip install quasardb==3.14.2.dev8
+
+# ${VENV_PYTHON} -m pip install --no-deps --force-reinstall qdb/quasardb-*.whl
 
 # build wheel
 
@@ -41,8 +44,7 @@ ${VENV_PYTHON} -m build --wheel
 # install wheel
 echo "Installing built wheel"
 
-${VENV_PYTHON} -m pip install --no-deps --force-reinstall dist/qdb_prometheus_exporter*.whl
-
+${VENV_PYTHON} -m pip install --force-reinstall --no-deps dist/qdb_prometheus_exporter*.whl
 
 echo "Invoking pytest"
 
