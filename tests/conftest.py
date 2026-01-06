@@ -33,7 +33,9 @@ def qdbd_settings():
 
 
 @pytest.fixture(
-    scope="module", params=list(qdbd_settings_dict.values()), ids=list(qdbd_settings_dict.keys())
+    scope="module",
+    params=list(qdbd_settings_dict.values()),
+    ids=list(qdbd_settings_dict.keys()),
 )
 def qdbd_conn_args(request):
     return request.param
