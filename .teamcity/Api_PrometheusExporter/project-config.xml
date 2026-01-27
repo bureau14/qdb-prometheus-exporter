@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" parent-id="Api" uuid="df88c243-6c22-474b-a316-87d7c05c286b" xsi:noNamespaceSchemaLocation="https://www.jetbrains.com/teamcity/schemas/2025.3/project-config.xsd">
+  <name>Prometheus Exporter</name>
+  <project-extensions>
+    <extension id="PROJECT_EXT_20" type="versionedSettings">
+      <parameters>
+        <param name="buildSettings" value="PREFER_CURRENT" />
+        <param name="credentialsStorageType" value="credentialsJSON" />
+        <param name="enabled" value="true" />
+        <param name="ignoreChangesInDependenciesAndVcsSettings" value="false" />
+        <param name="rootId" value="Api_PrometheusExporter_VcsSettings" />
+        <param name="showChanges" value="false" />
+      </parameters>
+    </extension>
+  </project-extensions>
+</project>
+
