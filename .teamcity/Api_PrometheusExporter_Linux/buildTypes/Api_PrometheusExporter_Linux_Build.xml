@@ -45,7 +45,7 @@
     <build-extensions>
       <extension id="DockerSupport" type="DockerSupport">
         <parameters>
-          <param name="login2registry" value="PROJECT_EXT_39" />
+          <param name="login2registry" value="PROJECT_EXT_11" />
           <param name="loginCheckbox" value="on" />
         </parameters>
       </extension>
