@@ -10,3 +10,5 @@ uvicorn
 
 click
 requests
+
+teamcity-messages
