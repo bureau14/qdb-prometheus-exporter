@@ -24,6 +24,7 @@
           <param name="plugin.docker.imagePlatform" value="linux" />
           <param name="command.executable" value="bash" />
           <param name="command.parameters" value="scripts/teamcity/10.test.sh" />
+          <param name="plugin.docker.run.parameters" value="--network=host" />
           <param name="teamcity.step.mode" value="execute_always" />
         </parameters>
       </runner>
