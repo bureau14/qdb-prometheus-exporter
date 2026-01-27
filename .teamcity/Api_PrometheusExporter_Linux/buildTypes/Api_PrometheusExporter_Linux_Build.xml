@@ -23,7 +23,7 @@
           <param name="plugin.docker.imageId" value="python:%PYTHON_VERSION%" />
           <param name="plugin.docker.imagePlatform" value="linux" />
           <param name="command.executable" value="bash" />
-          <param name="command.parameters" value="scripts/tests/teamcity/10.test.sh" />
+          <param name="command.parameters" value="scripts/teamcity/10.test.sh" />
           <param name="teamcity.step.mode" value="execute_always" />
         </parameters>
       </runner>
