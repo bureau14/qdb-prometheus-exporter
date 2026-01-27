@@ -4,7 +4,7 @@ name = "qdb-prometheus-exporter"
 version = "3.15.0.dev0"
 authors = [
     {name = "quasardb SAS"},
-    {email="contact@quasardb.net" },
+    {email="support@quasar.ai" },
 ]
 description = "Statistics exporter for Prometheus monitoring system for QuasarDB time-series database."
 dependencies = [
@@ -14,6 +14,9 @@ dependencies = [
     "uvicorn",
     "fastapi",
 ]
+
+[project.urls]
+Homepage = "https://www.quasar.ai"
 
 [build-system]
 requires = ["setuptools", "build", "wheel"]
