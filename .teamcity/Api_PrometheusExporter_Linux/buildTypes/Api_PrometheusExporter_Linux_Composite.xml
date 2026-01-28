@@ -23,16 +23,12 @@
           <option name="take-successful-builds-only" value="true" />
         </options>
       </depend-on>
-    </dependencies>
-    <dependencies>
       <depend-on sourceBuildTypeId="Api_PrometheusExporter_Linux_Python313">
         <options>
           <option name="take-started-build-with-same-revisions" value="true" />
           <option name="take-successful-builds-only" value="true" />
         </options>
       </depend-on>
-    </dependencies>
-    <dependencies>
       <depend-on sourceBuildTypeId="Api_PrometheusExporter_Linux_Python39">
         <options>
           <option name="take-started-build-with-same-revisions" value="true" />
