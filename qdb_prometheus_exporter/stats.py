@@ -7,6 +7,8 @@ import uuid
 import quasardb
 import quasardb.stats as qdbst
 
+from typing import Union
+
 
 def _do_filter_metrics(metrics: dict, fn):
     return {key: metrics[key] for key in metrics if fn(key)}
@@ -37,8 +39,8 @@ def _do_filter(stats: dict, fn):
 
 def filter_stats(
     stats: dict,
-    include: list[str] | None,
-    exclude: list[str] | None,
+    include: Union[list[str], None],
+    exclude: Union[list[str], None],
     logger: logging.Logger,
 ):
     logger.info("Filtering stats based on include/exclude filters")
@@ -143,8 +145,8 @@ def _get_base_qdb_metrics(conn: quasardb.Cluster, logger: logging.Logger):
 
 def fetch_qdb_stats(
     qdb_conn_args: dict,
-    include: list[str] | None,
-    exclude: list[str] | None,
+    include: Union[list[str], None],
+    exclude: Union[list[str], None],
     logger: logging.Logger,
 ):
     base_stats, node_stats = {}, {}

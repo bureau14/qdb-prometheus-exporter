@@ -11,14 +11,15 @@ from prometheus_client.registry import Collector
 
 from .stats import fetch_qdb_stats
 import re
+from typing import Union
 
 
 class QdbStatsCollector(Collector):
     def __init__(
         self,
         qdb_conn_args: dict,
-        filter_include: list[str] | None,
-        filter_exclude: list[str] | None,
+        filter_include: Union[list[str], None],
+        filter_exclude: Union[list[str], None],
         logger: logging.Logger,
     ):
         self.qdb_conn_args = qdb_conn_args
@@ -27,7 +28,8 @@ class QdbStatsCollector(Collector):
         self.logger = logger
 
         self.qdbst_types_to_prometheus_types: dict[
-            qdbst.Type, type[GaugeMetricFamily | CounterMetricFamily | InfoMetricFamily]
+            qdbst.Type,
+            type[Union[GaugeMetricFamily, CounterMetricFamily, InfoMetricFamily]],
         ] = {
             qdbst.Type.GAUGE: GaugeMetricFamily,
             qdbst.Type.ACCUMULATOR: CounterMetricFamily,
@@ -55,7 +57,7 @@ class QdbStatsCollector(Collector):
 
     def _parse_qdb_statistics_entry(
         self, labels: dict[str, str], metric_name: str, metric_info: dict
-    ) -> GaugeMetricFamily | CounterMetricFamily | InfoMetricFamily | None:
+    ) -> Union[GaugeMetricFamily, CounterMetricFamily, InfoMetricFamily, None]:
         """
         Converts single statistic from QuasarDB to Prometheus Metric.
         """
@@ -96,10 +98,10 @@ class QdbStatsCollector(Collector):
         metric.add_metric(**add_metric_kwargs)
         return metric
 
-    def _parse_qdb_statistics(
-        self, qdb_metrics: dict
-    ) -> Generator[
-        GaugeMetricFamily | CounterMetricFamily | InfoMetricFamily | None, None, None
+    def _parse_qdb_statistics(self, qdb_metrics: dict) -> Generator[
+        Union[GaugeMetricFamily, CounterMetricFamily, InfoMetricFamily, None],
+        None,
+        None,
     ]:
         """
         Yields Prometheus metrics parsed from QuasarDB statistics dictionary.
