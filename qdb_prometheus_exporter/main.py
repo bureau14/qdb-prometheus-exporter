@@ -60,6 +60,7 @@ def _parse_list(x):
     help="Optional comma-separated list of regex patterns to filter metrics. Only metrics that contain none of the patterns will be reported.",
 )
 @click.option("--exporter-port", default=9000, type=int)
+@click.option("--listen-address", default="127.0.0.1", type=str, help="Address on which the exporter will listen.")
 def start_server(
     cluster: str,
     cluster_public_key_file: str,
@@ -67,6 +68,7 @@ def start_server(
     filter_include: str,
     filter_exclude: str,
     exporter_port: int,
+    listen_address: str,
 ):
     conn_args = {
         "uri": cluster,
@@ -81,7 +83,7 @@ def start_server(
         conn_args, _parse_list(filter_include), _parse_list(filter_exclude), logger
     )
     app.mount("/metrics", metrics_app)
-    uvicorn.run(app, host="0.0.0.0", port=exporter_port)
+    uvicorn.run(app, host=listen_address, port=exporter_port)
 
 
 if __name__ == "__main__":
