@@ -1,7 +1,7 @@
 [project]
 requires-python = ">=3.9"
 name = "qdb-prometheus-exporter"
-version = "3.14.2"
+version = "3.14.3.dev0"
 authors = [
     {name = "quasardb SAS"},
     {email="support@quasar.ai" },
@@ -9,7 +9,7 @@ authors = [
 description = "Statistics exporter for Prometheus monitoring system for QuasarDB time-series database."
 dependencies = [
     "prometheus-client",
-    "quasardb==3.14.2",
+    "quasardb",
     "click",
     "uvicorn",
     "fastapi",
